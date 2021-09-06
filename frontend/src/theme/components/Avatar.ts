@@ -10,15 +10,6 @@ export const Avatar: ComponentMultiStyleConfig = {
       width: '2.5rem',
       height: '2.5rem',
       color: 'white',
-      _hover: {
-        backgroundColor: 'primary.600',
-      },
-      _focus: {
-        boxShadow: '0 0 0 4px var(--chakra-colors-primary-300)',
-      },
-      _active: {
-        boxShadow: '0 0 0 4px var(--chakra-colors-primary-300)',
-      },
     },
     badge: {
       borderColor: 'white',
