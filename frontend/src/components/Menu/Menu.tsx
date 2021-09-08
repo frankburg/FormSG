@@ -3,6 +3,7 @@ import {
   ButtonProps,
   Menu as ChakraMenu,
   MenuButton as ChakraMenuButton,
+  MenuDivider as ChakraMenuDivider,
   MenuItem as ChakraMenuItem,
   MenuList as ChakraMenuList,
   MenuProps,
@@ -56,6 +57,11 @@ const MenuList = ChakraMenuList
 const MenuItem = ChakraMenuItem
 
 /**
+ * Divider in DropdownMenu
+ */
+const MenuDivider = ChakraMenuDivider
+
+/**
  * Used to wrap MenuButton, MenuItem and MenuList components
  */
 export const Menu = (props: MenuProps): JSX.Element => {
@@ -65,3 +71,4 @@ export const Menu = (props: MenuProps): JSX.Element => {
 Menu.Button = MenuButton
 Menu.List = MenuList
 Menu.Item = MenuItem
+Menu.Divider = MenuDivider
