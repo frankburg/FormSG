@@ -1,8 +1,6 @@
 // Retrieved from https://reactsvgicons.com/boxicons
 
-export const BxUserIcon = (
-  props: React.SVGProps<SVGSVGElement>,
-): JSX.Element => {
+export const BxsUser = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
   return (
     <svg
       viewBox="0 0 24 24"
