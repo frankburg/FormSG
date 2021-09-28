@@ -21,15 +21,18 @@ export interface AvatarProps extends ChakraAvatarProps {
  * Avatar component
  * May be wrapped in AvatarMenuButton
  */
-export const Avatar = (props: AvatarProps): JSX.Element => {
-  const avatarBadge = props.hasNotification ? <ChakraAvatarBadge /> : ''
+export const Avatar = ({
+  hasNotification,
+  ...rest
+}: AvatarProps): JSX.Element => {
+  const avatarBadge = hasNotification ? <ChakraAvatarBadge /> : ''
 
   return (
     <ChakraAvatar
       getInitials={
-        props.getInitials ? props.getInitials : (fullName) => fullName[0] // Extract first letter of avatar name
+        rest.getInitials ? rest.getInitials : (fullName) => fullName[0] // Extract first letter of avatar name
       }
-      {...props}
+      {...rest}
     >
       {avatarBadge}
     </ChakraAvatar>
