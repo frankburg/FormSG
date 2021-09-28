@@ -21,17 +21,5 @@ export const Avatar: ComponentMultiStyleConfig = {
       top: '2.125rem',
       left: '2.125rem',
     },
-    usernameItem: {
-      display: 'flex',
-      alignItems: 'center',
-      py: '0.5rem',
-      px: '1rem',
-      fontWeight: '500',
-    },
-    usernameIcon: {
-      w: '1rem',
-      h: '1rem',
-      mr: '1rem',
-    },
   },
 }
