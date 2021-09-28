@@ -18,12 +18,6 @@ export interface AvatarProps extends ChakraAvatarProps {
 }
 
 /*
- * Utility to extract first letter of avatar name
- * Override default getInitials Avatar method
- */
-const getInitials = (fullName: string) => fullName[0]
-
-/*
  * Avatar component
  * May be wrapped in AvatarMenuButton
  */
@@ -31,7 +25,12 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
   const avatarBadge = props.hasNotification ? <ChakraAvatarBadge /> : ''
 
   return (
-    <ChakraAvatar getInitials={getInitials} {...props}>
+    <ChakraAvatar
+      getInitials={
+        props.getInitials ? props.getInitials : (fullName) => fullName[0] // Extract first letter of avatar name
+      }
+      {...props}
+    >
       {avatarBadge}
     </ChakraAvatar>
   )
