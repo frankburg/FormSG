@@ -1,7 +1,5 @@
-import { Box, MenuDivider, SimpleGrid } from '@chakra-ui/react'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
-
-import DropdownMenu from '../Menu'
 
 import { Avatar } from './Avatar'
 
@@ -10,87 +8,32 @@ export default {
   component: Avatar,
 } as Meta
 
-type AvatarGroupTemplateProps = {
-  fullName?: string
-  userName?: string
-  hasNotification?: boolean
-}
-
 type AvatarTemplateProps = {
-  fullName?: string
-  userName?: string
   hasNotification?: boolean
-  isOpen?: boolean
 }
 
-const AvatarTemplate: Story<AvatarTemplateProps> = ({
-  fullName,
-  userName,
-  hasNotification,
-  isOpen,
-}) => {
-  return (
-    <DropdownMenu {...(isOpen ? { isOpen } : {})}>
-      {({ isOpen }) => (
-        <>
-          <Avatar.MenuButton isActive={isOpen}>
-            <Avatar name={fullName} hasNotification={hasNotification}></Avatar>
-          </Avatar.MenuButton>
-          <DropdownMenu.List>
-            <Avatar.Username>{userName}</Avatar.Username>
-            <MenuDivider />
-            <DropdownMenu.Item>Billing</DropdownMenu.Item>
-            <DropdownMenu.Item>Emergency contact</DropdownMenu.Item>
-            <MenuDivider />
-            <DropdownMenu.Item>Sign out</DropdownMenu.Item>
-          </DropdownMenu.List>
-        </>
-      )}
-    </DropdownMenu>
-  )
+const AvatarTemplate: Story<AvatarTemplateProps> = ({ hasNotification }) => {
+  return <Avatar hasNotification={hasNotification}></Avatar>
 }
 
-const AvatarGroupTemplate: Story<AvatarGroupTemplateProps> = ({
-  fullName,
-  userName,
-  hasNotification,
-}) => {
+const AvatarGroupTemplate: Story = () => {
   return (
     <SimpleGrid
       columns={2}
-      spacing={'200px'}
+      spacingX={'100px'}
+      spacingY={'50px'}
       alignItems="center"
       templateColumns="min-content min-content"
     >
+      <Box>With Notification</Box>
       <Box>
-        Closed
-        <AvatarTemplate
-          fullName={fullName}
-          userName={userName}
-          hasNotification={hasNotification}
-        ></AvatarTemplate>
+        <AvatarTemplate hasNotification={true}></AvatarTemplate>
       </Box>
+      <Box>Without Notification</Box>
       <Box>
-        Open
-        <AvatarTemplate
-          fullName={fullName}
-          userName={userName}
-          hasNotification={hasNotification}
-          isOpen
-        ></AvatarTemplate>
+        <AvatarTemplate hasNotification={false}></AvatarTemplate>
       </Box>
     </SimpleGrid>
   )
 }
 export const Default = AvatarGroupTemplate.bind({})
-Default.args = {
-  fullName: 'My name',
-  userName: 'someuser@email.com',
-}
-
-export const WithNotification = AvatarGroupTemplate.bind({})
-WithNotification.args = {
-  fullName: 'My name',
-  userName: 'someuser@email.com',
-  hasNotification: true,
-}
