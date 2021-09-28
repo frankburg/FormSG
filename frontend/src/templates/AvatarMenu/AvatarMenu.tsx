@@ -7,14 +7,13 @@ import {
 } from '@chakra-ui/react'
 
 import { BxsUser } from '~/assets/icons/BxsUser'
-
-import Menu from '../Menu'
+import Menu from '~/components/Menu'
 
 /**
  * MenuButton styled for avatar
  * Used to wrap Avatar component
  * @preconditions Must be a child of Menu component,
- * and returned using a render prop (see implementation in Avatar.stories).
+ * and returned using a render prop (see implementation in AvatarMenu.stories).
  */
 export const AvatarMenuButton = (props: ButtonProps): JSX.Element => {
   return (
